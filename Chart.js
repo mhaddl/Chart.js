@@ -146,14 +146,14 @@ window.Chart = function(context, options){
 	};
 
 	this.tooltips = [],
-		defaults = {
-			tooltips: {
-				background: 'rgba(0,0,0,0.6)',
-				fontFamily : "'Arial'",
-				fontStyle : "normal",
-				fontColor: 'white',
-				fontSize: '12px',
-				labelTemplate: '<%=label%>: <%=value%>',
+	defaults = {
+		tooltips: {
+			background: 'black',
+			fontFamily : "'Arial'",
+			fontStyle : "normal",
+			fontColor: 'white',
+			fontSize: '12px',
+			labelTemplate: '<%=title%> <%=value%>',
 				padding: {
 					top: 10,
 					right: 10,
@@ -1133,7 +1133,7 @@ window.Chart = function(context, options){
 				for(var j = 0; j < data.datasets[i].data.length; j++) {
 					if(animPc >= 1 && config.showTooltips) {
 						// register tooltips
-						registerTooltip(ctx,{type:'circle',x:xPos(j),y:yPos(i,j),r:pointRadius},{label:data.labels[j],value:data.datasets[i].data[j]},'Line');
+						registerTooltip(ctx,{type:'circle',x:xPos(j),y:yPos(i,j),r:pointRadius},{label:data.labels[j],value:data.datasets[i].data[j], title:data.datasets[i].title},'Line');
 					}
 				}
 				ctx.stroke();
